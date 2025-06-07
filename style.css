@@ -162,19 +162,6 @@
   pointer-events: none;
   cursor: default;
 }
-@media (max-width: 768px) {
-  .hero-text {
-    width: 80%;
-    margin-top: -80px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text {
-    width: 70%;
-    margin-top: -60px;
-  }
-}
 
 
 
@@ -190,19 +177,24 @@
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .bottle {
-    width: 36vw;
-    top: 70%;
-  }
+
+
+   .bottle- {
+  position: fixed ;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: auto;
+  z-index: 1200;
+  pointer-events: none;
+  
 }
 
-@media (max-width: 480px) {
-  .bottle {
-    width: 50vw;
-    top: 65%;
-  }
-}
+
+
+
+
 
 .view-more-wrapper {
   position: absolute;
@@ -357,6 +349,9 @@
 text-align: center;
   align-items: center;
   flex-direction: column;
+  
+
+
 }
 
 .section2 .text h2 {
@@ -367,19 +362,6 @@ text-align: center;
   font-weight: 400;
   line-height: 60px;
   margin: 0;
-}
-@media (max-width: 768px) {
-  .section2 .text h2 {
-    font-size: 36px;
-    line-height: 42px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section2 .text h2 {
-    font-size: 28px;
-    line-height: 34px;
-  }
 }
 
 .line span.dark {

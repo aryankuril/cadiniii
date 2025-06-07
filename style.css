@@ -168,9 +168,8 @@
 
 .bottle {
   position: fixed;     /* 💥 Key point */
-  top: 70%;            /* Center vertically */
-  left: 50%;           /* Center horizontally */
-  transform: translate(-50%, -50%);
+  top: 42%;            /* Center vertically */
+  left: 40%;           /* Center horizontally */
   width: 20vw;
   height: auto;
   z-index: 1000;

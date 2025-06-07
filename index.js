@@ -25,30 +25,30 @@ function updateSectionPositions() {
 updateSectionPositions();
 window.addEventListener("resize", updateSectionPositions);
 
-// ✅ Optimized GSAP quickTo tweens (no lag after scroll)
-const quickHeroScale = gsap.quickTo(".hero-text", "scale", {
-  duration: 0.3,
-  ease: "power2.out"
+// ✅ Fast update tweens (no lag after scroll)
+const scaleHeroText = gsap.quickTo(".hero-text", "scale", {
+  duration: 0.1,
+  ease: "none"
 });
 
-const quickLogoScale = gsap.quickTo(".logo-center", "scale", {
-  duration: 0.3,
-  ease: "power2.out"
+const scaleLogo = gsap.quickTo(".logo-center", "scale", {
+  duration: 0.1,
+  ease: "none"
 });
 
-const quickLogoOpacity = gsap.quickTo(".logo-center", "opacity", {
-  duration: 0.3,
-  ease: "power2.out"
+const opacityLogo = gsap.quickTo(".logo-center", "opacity", {
+  duration: 0.1,
+  ease: "none"
 });
 
-const quickNavbarY = gsap.quickTo(".navbar", "y", {
-  duration: 0.05,
-  ease: "power2.out"
+const moveNavbarY = gsap.quickTo(".navbar", "y", {
+  duration: 0.1,
+  ease: "none"
 });
 
-const quickNavbarOpacity = gsap.quickTo(".navbar", "opacity", {
-  duration: 0.05,
-  ease: "power2.out"
+const fadeNavbar = gsap.quickTo(".navbar", "opacity", {
+  duration: 0.1,
+  ease: "none"
 });
 
 // 🧠 Scroll logic
@@ -57,29 +57,28 @@ let ticking = false;
 function handleScroll() {
   const scrollY = window.scrollY;
 
-  // Shrink hero text scale from 1 to 0.5 smoothly
-  const scaleValue = Math.max(1 - scrollY / 500, 0.5);
-  quickHeroScale(scaleValue);
+  // Scale hero text
+  const scaleVal = Math.max(1 - scrollY / 500, 0.5);
+  scaleHeroText(scaleVal);
 
-  // Zoom-in logo
+  // Zoom-in logo between scroll 100 and 300
   const logoStart = 100;
   const logoEnd = 300;
   let logoProgress = (scrollY - logoStart) / (logoEnd - logoStart);
   logoProgress = Math.min(Math.max(logoProgress, 0), 1);
-  quickLogoScale(logoProgress);
-  quickLogoOpacity(logoProgress);
+  scaleLogo(logoProgress);
+  opacityLogo(logoProgress);
 
-  // Show/hide navbar instantly based on scale
-  if (scaleValue <= 0.55) {
-    quickNavbarY(0);
-    quickNavbarOpacity(1);
+  // Show/hide navbar
+  if (scaleVal <= 0.55) {
+    moveNavbarY(0);
+    fadeNavbar(1);
   } else {
-    quickNavbarY(-100);
-    quickNavbarOpacity(0);
+    moveNavbarY(-100);
+    fadeNavbar(0);
   }
 }
 
-// 🖱️ Optimized scroll listener
 window.addEventListener("scroll", () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {

@@ -25,7 +25,7 @@ function updateSectionPositions() {
 updateSectionPositions();
 window.addEventListener("resize", updateSectionPositions);
 
-// ✅ Optimized GSAP quickTo tweens
+// ✅ Optimized GSAP quickTo tweens (no lag after scroll)
 const quickHeroScale = gsap.quickTo(".hero-text", "scale", {
   duration: 0.3,
   ease: "power2.out"
@@ -69,7 +69,7 @@ function handleScroll() {
   quickLogoScale(logoProgress);
   quickLogoOpacity(logoProgress);
 
-  // Show navbar as soon as scaleValue is near 0.55 (earlier) and animate super fast
+  // Show/hide navbar instantly based on scale
   if (scaleValue <= 0.55) {
     quickNavbarY(0);
     quickNavbarOpacity(1);
@@ -79,7 +79,7 @@ function handleScroll() {
   }
 }
 
-// 🖱️ Efficient scroll listener
+// 🖱️ Optimized scroll listener
 window.addEventListener("scroll", () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {

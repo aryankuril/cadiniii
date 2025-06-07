@@ -1,9 +1,9 @@
-// 🧭 Smooth Scroll to Second Section
-document.querySelector('.scroll-down').addEventListener('click', () => {
-  document.querySelector('.section2').scrollIntoView({
-    behavior: 'smooth'
-  });
-});
+// // 🧭 Smooth Scroll to Second Section
+// document.querySelector('.scroll-down').addEventListener('click', () => {
+//   document.querySelector('.section2').scrollIntoView({
+//     behavior: 'smooth'
+//   });
+// });
 
 window.addEventListener("scroll", () => {
   const bg = document.getElementById("bg-section");
